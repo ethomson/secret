@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: echo ${{github.token}} | rev
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
